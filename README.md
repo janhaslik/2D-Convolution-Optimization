@@ -84,8 +84,8 @@ matrix1D[9] = 10
 
 | Method                     | Time (ns) |
 |-----------------------------|-----------|
-| 2D vector convolution       | 1458      |
-| 1D flattened convolution    | 583       |
+| 2D vector convolution       | 1333      |
+| 1D flattened convolution    | 625       |
 
 **Output Result Matrix (both methods):**
 
@@ -96,7 +96,7 @@ matrix1D[9] = 10
 ```
 
 **Observations:**  
-- Flattening the matrix to 1D reduces memory indirection and improves cache locality, resulting in a ~2.5× speed-up for this small example.
+- Flattening the matrix to 1D reduces memory indirection and improves cache locality, resulting in a ~2.13× speed-up for this small example.
 - Both methods produce identical results, confirming correctness.
 
 ---
