@@ -68,8 +68,11 @@ int main(){
         for (int j = 0; j < newResultCols; j += stride) {
             int sum = 0;
             for (int kernelI = 0; kernelI < newKernelSize; kernelI++){
+                int rowOffset = (i + kernelI) * newMatrixCols + j;
+                int kernelOffset = kernelI * newKernelSize;
+
                 for (int kernelJ = 0; kernelJ < newKernelSize; kernelJ++){
-                    sum += flattenedMatrix[(i + kernelI) * newMatrixCols + (j + kernelJ)] * flattenedKernel[kernelI * newKernelSize + kernelJ];
+                    sum += flattenedMatrix[rowOffset + kernelJ] * flattenedKernel[kernelOffset+ kernelJ];
                 }
             }
             flattenedResult[i * newResultCols + j] = sum;
